@@ -1,4 +1,4 @@
-# DynHost-CRON
+# DynHost-Automation
 OVH dynamic DNS automation
 
 ## What is it ?
