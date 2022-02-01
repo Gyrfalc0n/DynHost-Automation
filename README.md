@@ -7,6 +7,12 @@ This is a simple script that allows you to check DNS entries for a list of subdo
 
 ## Installation
 
+First, you need to have the `dnsutils` Linux package. To get it, run this command : 
+
+```bash
+sudo apt-get install dnsutils
+```
+
 Simply download the `dynhost.sh` script. Then, make it executable with : 
 
 ```bash
