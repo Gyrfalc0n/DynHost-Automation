@@ -18,13 +18,11 @@ do
   PASSWORD="${arr[2]}"
 # --------------------------------------------------------
 # Get current IPv4 and corresponding configured
-  HOST_IP=$($DIG +short $HOST A)
-# echo -e "DOMAIN is ${domaine}"
-# echo -e "HOST is $HOST_IP"
+  HOST_IP=$(dig +short $HOST A)
   CURRENT_IP=$(curl -m 5 -4 ifconfig.co 2>/dev/null)
   if [ -z "$CURRENT_IP" ]
   then
-    CURRENT_IP=$($DIG +short myip.opendns.com @resolver1.opendns.com)
+    CURRENT_IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
   fi
   CURRENT_DATETIME=$(date -R)
 
