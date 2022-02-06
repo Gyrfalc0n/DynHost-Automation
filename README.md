@@ -13,15 +13,19 @@ First, you need to have the `dnsutils` Linux package. To get it, run this comman
 sudo apt-get install dnsutils
 ```
 
-Simply download the `dynhost.sh` script. Then, make it executable with : 
+Simply download the `dynhost.sh`and `discord.sh` (only if you want the script to send discord webhook post) script. Then, make it executable with : 
 
 ```bash
 sudo chmod +x dynhost.sh
+sudo chmod +x discord.sh
 ```
 Now, you can execute it.
 
 ## Configuration
-
+If you want to use discord webhook post, you have to specify url in the first variable : 
+```bash
+WEBHOOK_URL="your_url"
+```
 You have to modify **subdomain.domain.com**, **username** and **password** to match your subdomain address, your __DynHost id__ and the __password__ assigned to it. 
 ```bash
 domaines[0]='subdomain.domain.com;username;password'
