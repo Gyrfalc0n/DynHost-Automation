@@ -1,5 +1,6 @@
 #!/bin/bash
 
+WEBHOOK_URL="url"
 # Path variables
 PATH_LOG=/var/log/dynhostovh.log
 
@@ -34,7 +35,9 @@ do
     if [ "$HOST_IP" != "$CURRENT_IP" ]
     then
       RES=$(curl -m 5 -L --location-trusted --user "$LOGIN:$PASSWORD" "https://www.ovh.com/nic/update?system=dyndns&hostname=$HOST&myip=$CURRENT_IP")
-      echo "[$CURRENT_DATETIME]: IPv4 has changed - request to OVH DynHost: $RES" >> $PATH_LOG
+      result="[${CURRENT_DATETIME}]: IPv4 has changed - request to OVH DynHost: ${RES}"
+      echo $result >> $PATH_LOG
+      bash discord.sh --webhook-url=$WEBHOOK_URL --text $result
     fi
   fi
 done
